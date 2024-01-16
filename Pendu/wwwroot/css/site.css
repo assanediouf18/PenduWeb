@@ -41,8 +41,11 @@ body {
 
 #pattern {
     height: 100%;
-    flex: 1;
     background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .custom-font {

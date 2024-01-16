@@ -93,7 +93,8 @@ namespace Pendu.Models
                 StringBuilder newUnveiled = new StringBuilder(_unveiled);
                 for (int i = 0; i < SecretWord.Length; i++)
                 {
-                    if (SecretWord[i] == guess[0] && !_unveiled.Contains(guess))
+                    if (_unveiled.Contains(guess)) return true;
+                    if (SecretWord[i] == guess[0])
                     {
                         newUnveiled[i] = guess[0];
                         found = true;
