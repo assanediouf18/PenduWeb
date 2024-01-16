@@ -1,0 +1,44 @@
+﻿@page
+@model Pendu.Pages.Admin.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PenduModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PenduModel.Secret" class="control-label"></label>
+                <input asp-for="PenduModel.Secret" class="form-control" />
+                <span asp-validation-for="PenduModel.Secret" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenduModel.KnownLetters" class="control-label"></label>
+                <input asp-for="PenduModel.KnownLetters" class="form-control" />
+                <span asp-validation-for="PenduModel.KnownLetters" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenduModel.NbMistakes" class="control-label"></label>
+                <input asp-for="PenduModel.NbMistakes" class="form-control" />
+                <span asp-validation-for="PenduModel.NbMistakes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

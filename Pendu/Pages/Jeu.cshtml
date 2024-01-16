@@ -1,15 +1,19 @@
 ﻿@page
+@using Microsoft.AspNetCore.Http
 @model Pendu.Pages.JeuModel
 @{
 	ViewData["Title"] = "Jeu";
 }
 
 <div>
-	<p>Le prochain mot est @Model.NextWord</p>
 	<div>
-		Tu as fait <span>3</span> erreurs.
+		Tu as fait <span>@Model.Jeu.Mistakes</span> erreurs.
 	</div>
 	<div>
-		_ _ _ _ _
+		@Model.Jeu.KnownLetters
 	</div>
+	@foreach (var character in "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+	{
+		<a asp-page-handler="IsGoodGuess" asp-route-guess="@character">@character</a>
+	}
 </div>
