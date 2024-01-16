@@ -37,6 +37,12 @@ namespace Pendu.Pages
             return Page();
 		}
 
+		public IActionResult OnGetNewGame()
+		{
+			HttpContext.Session.Remove(SessionIdPath);
+			return RedirectToPage(nameof(Jeu));
+		}
+
         public async Task<IActionResult> OnGetIsGoodGuessAsync(string guess)
         {
             PenduModel model = await GetCurrentModelAsync();
@@ -49,9 +55,6 @@ namespace Pendu.Pages
 
 			model.KnownLetters = Jeu.KnownLetters;
 			model.NbMistakes++;
-			_logger.LogInformation("Ce qu'il y a dans le jeu actuellement : " + Jeu.KnownLetters);
-			_logger.LogInformation(model.KnownLetters);
-			_logger.LogInformation(model.NbMistakes.ToString());
 
 			_context.Attach(model).State = EntityState.Modified;
 			await _context.SaveChangesAsync();

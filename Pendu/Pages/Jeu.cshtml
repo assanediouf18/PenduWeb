@@ -5,15 +5,43 @@
 	ViewData["Title"] = "Jeu";
 }
 
-<div>
-	<div>
-		Tu as fait <span>@Model.Jeu.Mistakes</span> erreurs.
-	</div>
-	<div>
-		@Model.Jeu.KnownLetters
-	</div>
-	@foreach (var character in "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+<div class="game">
+	@if (Model.Jeu.Won)
 	{
-		<a asp-page-handler="IsGoodGuess" asp-route-guess="@character">@character</a>
+		<h1 class="custom-font">Bravo !</h1>
+		<p>Le mot est bien @Model.Jeu.SecretWord !</p>
+		<a asp-page-handler="NewGame" class="btn btn-primary">Commencer une autre partie</a>
+	}
+	else if(Model.Jeu.Lost)
+	{
+		<h1 class="custom-font">Ouin ouin...</h1>
+		<p>Tu as fait 10 erreurs; le mot était @Model.Jeu.SecretWord</p>
+		<a asp-page-handler="NewGame" class="btn btn-primary">Commencer une autre partie</a>
+	}
+	else
+	{
+		@if (Model.Jeu.Mistakes > 0)
+		{
+			<img src="assets/pendu@{@Model.Jeu.Mistakes}.svg"  alt="Dessin de @{@Model.Jeu.Mistakes} barres"/>
+			<span>
+				Tu as fait <strong>@Model.Jeu.Mistakes</strong> erreurs.
+			</span>
+		}
+		else
+		{
+			<h2 class="custom-font">Propose une lettre</h2>
+		}
+		<div class="known-letters">
+			@foreach(var character in @Model.Jeu.KnownLetters)
+			{
+				<span>@character</span>
+			}
+		</div>
+		<div class="keyboard">
+			@foreach (var character in "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+			{
+				<a asp-page-handler="IsGoodGuess" asp-route-guess="@character" class="btn btn-outline-dark">@character</a>
+			}
+		</div>
 	}
 </div>

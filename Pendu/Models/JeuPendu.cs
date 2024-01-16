@@ -1,7 +1,7 @@
 ﻿using Pendu.Services.WordProviders;
 using System.Text;
 
-namespace Pendu.Services
+namespace Pendu.Models
 {
     public class JeuPendu
     {

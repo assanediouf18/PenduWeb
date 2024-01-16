@@ -1,10 +1,10 @@
 html {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 
@@ -18,5 +18,60 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+#game-container {
+    height: 100vh;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px #888;
+    position: relative;
+}
+
+#game-container::before {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255,0,0,0.6);
+}
+
+#pattern {
+    height: 100%;
+    flex: 1;
+    background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+}
+
+.custom-font {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.known-letters {
+    margin: 24px;
+    font-size: 20px;
+}
+
+.known-letters span {
+    margin: 4px;
+}
+
+.keyboard {
+    max-width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.keyboard a {
+    margin: 4px 2px;
 }

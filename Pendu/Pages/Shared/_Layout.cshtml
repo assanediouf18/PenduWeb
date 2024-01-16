@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Pendu.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -23,17 +27,21 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">A propos</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div id="game-container">
+        <div id="pattern">
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">

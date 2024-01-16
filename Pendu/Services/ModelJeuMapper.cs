@@ -3,7 +3,7 @@ using Pendu.Services.WordProviders;
 
 namespace Pendu.Services
 {
-	public class ModelJeuMapper
+    public class ModelJeuMapper
 	{
 		public JeuPendu GetJeuPendu(PenduModel model)
 		{
